@@ -26,6 +26,8 @@ $1 Unistroke Recognizer の Python 3 実装
 マウスで描いてテンプレートとして保存する `export_gesture_app.py` と、保存したテンプレートと照合して
 認識を試せる `recognize_app.py` という2つの Tkinter アプリを同梱しています。
 
+![recognize_app.pyで手描きジェスチャーをテンプレートと照合するデモ](assets/demo.gif)
+
 ## インストール
 
 

@@ -21,18 +21,18 @@ class GestureDrawer:
         self.canvas.pack(fill=tk.BOTH, expand=True)
 
         # 状態表示用ラベル（点数や保存結果を表示する）
-        self.status = tk.Label(root, text="キャンバスをドラッグして一筆書きしてください")
+        self.status = tk.Label(root, text="Drag on the canvas to draw a unistroke gesture")
         self.status.pack(fill=tk.X)
 
         # クリアボタン・ファイル名入力欄・保存ボタンをまとめた操作バー
         button_frame = tk.Frame(root)
         button_frame.pack(fill=tk.X)
-        tk.Button(button_frame, text="クリア", command=self.clear).pack(side=tk.LEFT)
+        tk.Button(button_frame, text="Clear", command=self.clear).pack(side=tk.LEFT)
 
-        tk.Label(button_frame, text="ファイル名:").pack(side=tk.LEFT, padx=(10, 2))
+        tk.Label(button_frame, text="Filename:").pack(side=tk.LEFT, padx=(10, 2))
         self.filename_var = tk.StringVar(value="gesture")
         tk.Entry(button_frame, textvariable=self.filename_var, width=20).pack(side=tk.LEFT)
-        tk.Button(button_frame, text="保存 (CSV+PNG)", command=self.save).pack(side=tk.LEFT, padx=(4, 0))
+        tk.Button(button_frame, text="Save (CSV+PNG)", command=self.save).pack(side=tk.LEFT, padx=(4, 0))
 
         # points: 描画中のストロークの座標を逐次ためるリスト
         # last_points: 直前に描き終えたストロークの座標（保存対象）
@@ -62,7 +62,7 @@ class GestureDrawer:
         self.points = []
         self._prev_xy = None
         self._reset_image()
-        self.status.config(text="キャンバスをドラッグして一筆書きしてください")
+        self.status.config(text="Drag on the canvas to draw a unistroke gesture")
 
     def on_press(self, event):
         # 新しいストロークを描き始めるタイミングなので、まず前回の描画をクリアする
@@ -89,8 +89,8 @@ class GestureDrawer:
         # ストローク確定。この時点の座標列・画像を保存対象として控えておく
         self.last_points = self.points[:]
         self.last_image = self._image
-        self.status.config(text=f"取得点数: {len(self.last_points)} 点 (get_last_stroke() で取得可)")
-        print(f"[gesture_app] 取得した点列 ({len(self.last_points)}点):")
+        self.status.config(text=f"Captured {len(self.last_points)} points (available via get_last_stroke())")
+        print(f"[gesture_app] captured points ({len(self.last_points)}):")
         print(self.last_points)
 
     def get_last_stroke(self):
@@ -100,11 +100,11 @@ class GestureDrawer:
     def save(self):
         # 描いたストロークが無ければ保存しない
         if not self.last_points or self.last_image is None:
-            self.status.config(text="保存する点列がありません。先に描いてください")
+            self.status.config(text="Nothing to save yet. Draw a gesture first")
             return
         name = self.filename_var.get().strip()
         if not name:
-            self.status.config(text="ファイル名を入力してください")
+            self.status.config(text="Please enter a filename")
             return
         # 拡張子を打っていても打っていなくても、ベース名だけ取り出す
         base, _ = os.path.splitext(name)
@@ -122,8 +122,8 @@ class GestureDrawer:
             writer.writerows(self.last_points)
         self.last_image.save(png_path)
 
-        self.status.config(text=f"保存しました: {base}.csv / {base}.png")
-        print(f"[gesture_app] 保存: {csv_path} , {png_path}")
+        self.status.config(text=f"Saved: {base}.csv / {base}.png")
+        print(f"[gesture_app] saved: {csv_path} , {png_path}")
 
 
 def main():

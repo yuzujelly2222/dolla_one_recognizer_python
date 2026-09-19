@@ -25,6 +25,8 @@ This repository contains the recognizer itself, packaged as `dolla_one_recognize
 plus two small Tkinter demo apps: `export_gesture_app.py` (draw and save gesture
 templates) and `recognize_app.py` (match a drawn stroke against saved templates).
 
+![Demo of recognize_app.py matching hand-drawn gestures against registered templates](assets/demo.gif)
+
 ## Install
 
 ```bash

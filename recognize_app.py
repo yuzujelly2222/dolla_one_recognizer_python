@@ -5,7 +5,7 @@ from typing import Optional
 
 from PIL import Image, ImageTk
 
-from dolla_one_recognizer_py import dolla_one_recognizer
+from dolla_one_recognizer import dolla_one_recognizer
 
 CANVAS_SIZE = 600
 THUMB_SIZE = 80
@@ -49,7 +49,7 @@ class RecognizeApp:
         left_container.pack(side=tk.LEFT, fill=tk.Y)
         left_container.pack_propagate(False)
 
-        tk.Label(left_container, text="登録テンプレート", font=("", 11, "bold")).pack(fill=tk.X, pady=4)
+        tk.Label(left_container, text="Registered Templates", font=("", 11, "bold")).pack(fill=tk.X, pady=4)
 
         list_canvas = tk.Canvas(left_container, highlightthickness=0)
         scrollbar = tk.Scrollbar(left_container, orient=tk.VERTICAL, command=list_canvas.yview)
@@ -73,10 +73,10 @@ class RecognizeApp:
         self.canvas = tk.Canvas(right_frame, width=CANVAS_SIZE, height=CANVAS_SIZE, bg="white", cursor="cross")
         self.canvas.pack(fill=tk.BOTH, expand=True)
 
-        self.status = tk.Label(right_frame, text="読み込み中...", font=("", 12))
+        self.status = tk.Label(right_frame, text="Loading...", font=("", 12))
         self.status.pack(fill=tk.X)
 
-        tk.Button(right_frame, text="クリア", command=self.clear).pack(side=tk.LEFT)
+        tk.Button(right_frame, text="Clear", command=self.clear).pack(side=tk.LEFT)
 
         self.points: list[list[float]] = []
         self._prev_xy: Optional[tuple[float, float]] = None
@@ -100,12 +100,12 @@ class RecognizeApp:
         if not templates:
             # テンプレートが1つも無い場合は認識できないので、その旨を表示して終わる
             self.recognizer = None
-            self.status.config(text="gestures/ にテンプレートがありません（export_gesture_appで登録してください）")
+            self.status.config(text="No templates in gestures/ (register some with export_gesture_app.py)")
             return
 
         # 読み込んだ全テンプレートで dolla_one_recognizer を組み立て直す
         self.recognizer = dolla_one_recognizer(size=250, templates=templates, templates_name=names, n=64)
-        self.status.config(text=f"{len(names)}個のテンプレートを読み込みました。右のキャンバスに描いてください")
+        self.status.config(text=f"Loaded {len(names)} template(s). Draw a gesture on the canvas")
 
         # テンプレートごとに「サムネイル画像 + 名前」の行を左のリストに追加する
         for name in names:
@@ -157,7 +157,7 @@ class RecognizeApp:
         if self.recognizer is None or len(self.points) < 2:
             return
         _, name, score = self.recognizer.recognize(self.points)
-        self.status.config(text=f"認識結果: {name}  (score={score:.3f})")
+        self.status.config(text=f"Recognized: {name}  (score={score:.3f})")
         self._highlight(name)
 
 
