@@ -1,6 +1,6 @@
 [English](README.md) | [日本語](README.ja.md)
 
-# dolla_one_recognizer
+# dolla_one_recognizer_python
 
 $1 Unistroke Recognizer の Python 3 実装
 
