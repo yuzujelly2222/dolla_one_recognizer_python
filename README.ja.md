@@ -22,9 +22,9 @@ $1 Unistroke Recognizer の Python 3 実装
 やカラー物体・指先トラッキングなど）で得た座標列をそのままフレームごとに追加していけば、
 体の動きや物体の軌跡を一筆書きジェスチャーとして認識させることもできます。
 
-本リポジトリでは、認識器本体 (`dolla_one_recognizer.py`) に加えて、ジェスチャーをマウスで描いて
-テンプレートとして保存する `export_gesture_app.py` と、保存したテンプレートと照合して認識を試せる
-`recognize_app.py` という2つの Tkinter アプリを同梱しています。
+本リポジトリでは、認識器本体をパッケージ化した `dolla_one_recognizer_py/` に加えて、ジェスチャーを
+マウスで描いてテンプレートとして保存する `export_gesture_app.py` と、保存したテンプレートと照合して
+認識を試せる `recognize_app.py` という2つの Tkinter アプリを同梱しています。
 
 ## インストール
 
@@ -43,7 +43,7 @@ pip install -r requirements.txt
 ## 使い方
 
 ```python
-from dolla_one_recognizer import dolla_one_recognizer
+from dolla_one_recognizer_py import dolla_one_recognizer
 
 # テンプレート登録（各図形につき手本の点列を1つ用意するだけでよい）
 line_template = [[x, x] for x in range(0, 101, 5)]
@@ -137,7 +137,7 @@ $1 は入力された点列に次の4ステップを順に適用し、テンプ�
 
 ## ライセンスと出典
 
-本リポジトリのコード（`dolla_one_recognizer.py`を含む）は New BSD License
+本リポジトリのコード（`dolla_one_recognizer_py/`を含む）は New BSD License
 （[LICENSE](LICENSE)）で公開しています。
 
 原典・引用元:

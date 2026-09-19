@@ -21,9 +21,9 @@ Input is a plain list of points `[[x, y], ...]`, so the coordinates can come fro
 mouse, touch input, or a tracker such as OpenCV optical flow / color / fingertip
 tracking — just append each frame's `(x, y)` and pass the list in.
 
-This repository contains the recognizer itself (`dolla_one_recognizer.py`) plus two
-small Tkinter demo apps: `export_gesture_app.py` (draw and save gesture templates)
-and `recognize_app.py` (match a drawn stroke against saved templates).
+This repository contains the recognizer itself, packaged as `dolla_one_recognizer_py/`,
+plus two small Tkinter demo apps: `export_gesture_app.py` (draw and save gesture
+templates) and `recognize_app.py` (match a drawn stroke against saved templates).
 
 ## Install
 
@@ -38,7 +38,7 @@ Dependencies are `numpy` (geometry) and `pillow` (PNG I/O for the demo apps).
 ## Usage
 
 ```python
-from dolla_one_recognizer import dolla_one_recognizer
+from dolla_one_recognizer_py import dolla_one_recognizer
 
 # Register templates — one example stroke per shape is enough
 line_template = [[x, x] for x in range(0, 101, 5)]

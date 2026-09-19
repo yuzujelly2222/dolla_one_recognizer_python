@@ -5,7 +5,7 @@ from typing import Optional
 
 from PIL import Image, ImageTk
 
-from dolla_one_recognizer import dolla_one_recognizer
+from dolla_one_recognizer_py import dolla_one_recognizer
 
 CANVAS_SIZE = 600
 THUMB_SIZE = 80
