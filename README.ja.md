@@ -1,6 +1,6 @@
 [English](README.md) | [日本語](README.ja.md)
 
-# dolla_one_recognizer
+# dolla_one_recognizer_python
 
 $1 Unistroke Recognizer の Python 3 実装
 
@@ -35,7 +35,7 @@ $1 Unistroke Recognizer の Python 3 実装
 GUIアプリ（`export_gesture_app.py` / `recognize_app.py`）も使う場合はリポジトリごとcloneしてください。
 
 ```bash
-git clone https://github.com/yuzujelly2222/dolla_one_recognizer.git
+git clone https://github.com/yuzujelly2222/dolla_one_recognizer_python.git
 cd dolla_one_recognizer
 pip install -r requirements.txt
 ```
