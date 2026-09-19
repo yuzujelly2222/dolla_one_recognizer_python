@@ -30,7 +30,7 @@ templates) and `recognize_app.py` (match a drawn stroke against saved templates)
 ## Install
 
 ```bash
-git clone https://github.com/yuzujelly2222/dolla_one_recognizer.git
+git clone https://github.com/yuzujelly2222/dolla_one_recognizer_python.git
 cd dolla_one_recognizer
 pip install -r requirements.txt
 ```
