@@ -5,6 +5,7 @@
 $1 Unistroke Recognizer の Python 3 実装
 
 
+[![PyPI](https://img.shields.io/pypi/v/dolla-one-recognizer-py.svg)](https://pypi.org/project/dolla-one-recognizer-py/)
 [![License](https://img.shields.io/badge/license-BSD--3--Clause-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/)
 
@@ -30,17 +31,20 @@ $1 Unistroke Recognizer の Python 3 実装
 
 ## インストール
 
+```bash
+pip install dolla-one-recognizer-py
+```
 
+認識器本体（`dolla_one_recognizer_py`）がインストールされます。依存パッケージは `numpy`（幾何計算）のみです。
 
-GUIアプリ（`export_gesture_app.py` / `recognize_app.py`）も使う場合はリポジトリごとcloneしてください。
+GUIアプリ（`export_gesture_app.py` / `recognize_app.py`）も使う場合は、リポジトリごとcloneしてください。
+こちらはジェスチャー画像のPNG入出力用に `pillow` も追加でインストールされます。
 
 ```bash
 git clone https://github.com/yuzujelly2222/dolla_one_recognizer_python.git
-cd dolla_one_recognizer
+cd dolla_one_recognizer_python
 pip install -r requirements.txt
 ```
-
-依存パッケージは `numpy`（幾何計算）と `pillow`（ジェスチャー画像のPNG入出力）のみです。
 
 ## 使い方
 

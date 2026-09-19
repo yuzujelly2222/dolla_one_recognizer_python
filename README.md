@@ -4,6 +4,7 @@
 
 A Python 3 implementation of the **$1 Unistroke Recognizer**.
 
+[![PyPI](https://img.shields.io/pypi/v/dolla-one-recognizer-py.svg)](https://pypi.org/project/dolla-one-recognizer-py/)
 [![License](https://img.shields.io/badge/license-BSD--3--Clause-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/)
 
@@ -30,12 +31,19 @@ templates) and `recognize_app.py` (match a drawn stroke against saved templates)
 ## Install
 
 ```bash
-git clone https://github.com/yuzujelly2222/dolla_one_recognizer_python.git
-cd dolla_one_recognizer
-pip install -r requirements.txt
+pip install dolla-one-recognizer-py
 ```
 
-Dependencies are `numpy` (geometry) and `pillow` (PNG I/O for the demo apps).
+This installs the recognizer itself (`dolla_one_recognizer_py`), depending only on `numpy`.
+
+To also try the GUI demo apps (`export_gesture_app.py` / `recognize_app.py`), clone the
+repo instead, which additionally installs `pillow` for PNG I/O:
+
+```bash
+git clone https://github.com/yuzujelly2222/dolla_one_recognizer_python.git
+cd dolla_one_recognizer_python
+pip install -r requirements.txt
+```
 
 ## Usage
 
