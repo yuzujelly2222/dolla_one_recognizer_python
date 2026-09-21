@@ -1,0 +1,17 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Sphinx build artifacts (docs/ is the built site published to GitHub Pages)
+docs_src/_build/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -10,7 +10,6 @@ CANVAS_SIZE = 600
 THUMB_SIZE = 80
 GESTURES_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "gestures")
 
-
 # gestures/ 内の *.csv を全部読み込み、テンプレートの点列と名前のリストを返す
 def load_templates() -> tuple[list[list[list[float]]], list[str]]:
     templates: list[list[list[float]]] = []

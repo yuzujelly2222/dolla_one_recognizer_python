@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dolla_one_recognizer_py"
+dynamic = ["version"]
+description = "A Python 3 implementation of the $1 Unistroke Recognizer"
+readme = "README.md"
+license = { text = "BSD-3-Clause" }
+authors = [{ name = "yuzujelly2222" }]
+requires-python = ">=3.9"
+dependencies = ["numpy"]
+classifiers = [
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.urls]
+Homepage = "https://github.com/yuzujelly2222/dolla_one_recognizer_python"
+
+[tool.setuptools]
+packages = ["dolla_one_recognizer_py"]
+include-package-data = false
+
+[tool.setuptools.dynamic]
+version = { attr = "dolla_one_recognizer_py.__version__" }

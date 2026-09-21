@@ -102,6 +102,30 @@ with `_` and are internal.
 | `add_template(points, name)` | Add one more template |
 | `recognize(points)` | Normalize a raw stroke, match all templates, return `(best_points, best_name, score)` |
 
+`__init__` and `add_template` validate their input and raise `ValueError` when:
+
+- `size` is not > 0, or `n` is not > 1
+- `templates` and `templates_name` have different lengths
+- a template has fewer than 2 points
+- a template name is empty/whitespace-only, or already registered (names are trimmed)
+
+## Documentation & tests
+
+A Sphinx-generated API reference lives in `docs/` (source in `docs_src/`), published via
+GitHub Pages. To rebuild it locally:
+
+```bash
+pip install sphinx sphinx-rtd-theme
+sphinx-build -b html docs_src docs
+```
+
+A pytest suite covering the recognizer lives in `tests/`:
+
+```bash
+pip install pytest
+pytest
+```
+
 ## License & citation
 
 Distributed under the **New BSD License** — see [LICENSE](LICENSE).

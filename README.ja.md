@@ -135,11 +135,37 @@ $1 は入力された点列に次の4ステップを順に適用し、テンプ�
 | `add_template(points, name)` | テンプレートを1つ追加登録 |
 | `recognize(points)` | 生の点列を正規化して全テンプレートと照合し `(best_points, best_name, score)` を返す |
 
+### バリデーション
+
+`__init__` と `add_template` は不正な入力を `ValueError` で弾きます。
+
+- `size` は0より大きいこと、`n` は1より大きいこと
+- `templates` と `templates_name` の要素数が一致していること
+- 各テンプレートの点列は2点以上であること
+- テンプレート名は空（空白のみも含む）でないこと、かつ既存の名前と重複していないこと（前後の空白は自動でトリムされる）
+
 ### その他
 
-- `templates_template` — テンプレート1件分の `points`（正規化済み点列）と `name` を持つ入れ物
+- `GestureTemplate` — テンプレート1件分の `points`（正規化済み点列）と `name` を持つ入れ物
 - `_deg` — 度数法で三角関数を扱うための内部ヘルパー（`sin`/`cos`/`tan`/`arcsin`/`arccos`/`arctan`/`arctan2`）
 - `export_gesture_app.py` / `recognize_app.py` — ライブラリではなく、動作確認用のTkinter GUIアプリ
+
+## ドキュメント・テスト
+
+Sphinxで生成したAPIリファレンスが `docs/` にあり、GitHub Pagesとして公開する設定になっています
+（`docs_src/` がSphinxのソース、`docs/` がビルド済みの公開用HTMLです）。ソースから再生成する場合:
+
+```bash
+pip install sphinx sphinx-rtd-theme
+sphinx-build -b html docs_src docs
+```
+
+`tests/` にはpytestベースのテストスイートがあります。
+
+```bash
+pip install pytest
+pytest
+```
 
 ## ライセンスと出典
 
